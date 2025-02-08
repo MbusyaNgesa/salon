@@ -6,23 +6,23 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface BlogPost {
-    title: string;
-    image: string;
-    content: string;
+  title: string;
+  image: string;
+  content: string;
 }
 
-interface BlogPosts {
-    [slug: string]: BlogPost;
+interface BlogPosts { 
+  [slug: string]: BlogPost;
 }
 export default function BlogPostPage() {
-    const params = useParams();
-    const slug = params.slug as string;
+  const params = useParams();
+  const slug = params.slug as string;
 
-    const blogPosts: BlogPosts = {
-        "castor-oil-benefits": {
-            title: "The Benefits of Castor Oil for Hair Growth",
-            image: "/blog-castor-oil.jpg",
-            content: `
+  const blogPosts: BlogPosts = {
+    "castor-oil-benefits": {
+      title: "The Benefits of Castor Oil for Hair Growth",
+      image: "/blog-castor-oil.jpg",
+      content: `
     <p>Castor oil has been used for centuries as a natural remedy for various ailments, including hair loss and thinning. At Milele, we've incorporated this powerful oil into many of our treatments due to its numerous benefits for hair health.</p>
     
     <h2>How Castor Oil Promotes Hair Growth</h2>
@@ -45,11 +45,11 @@ export default function BlogPostPage() {
 
     <p>At Milele, we offer professional castor oil treatments that can be customized to your specific hair needs. Visit us to experience the transformative power of castor oil for yourself!</p>
   `,
-        },
-        "relaxation-techniques": {
-            title: "Top 5 Relaxation Techniques for Stress Relief",
-            image: "/blog-relaxation.jpg",
-            content: `
+    },
+    "relaxation-techniques": {
+      title: "Top 5 Relaxation Techniques for Stress Relief",
+      image: "/blog-relaxation.jpg",
+      content: `
     <p>In today's fast-paced world, stress has become a common part of our daily lives. At Milele, we believe in the importance of holistic wellness, which includes managing stress effectively. Here are our top 5 relaxation techniques for stress relief:</p>
 
     <h2>1. Deep Breathing Exercises</h2>
@@ -69,11 +69,11 @@ export default function BlogPostPage() {
 
     <p>At Milele, we incorporate many of these techniques into our spa treatments. Visit us to experience a truly relaxing and rejuvenating experience!</p>
   `,
-        },
-        "mens-grooming-tips": {
-            title: "Men's Grooming Tips for a Polished Look",
-            image: "/blog-mens-grooming.jpg",
-            content: `
+    },
+    "mens-grooming-tips": {
+      title: "Men's Grooming Tips for a Polished Look",
+      image: "/blog-mens-grooming.jpg",
+      content: `
     <p>Grooming is an essential part of every man's daily routine. At Milele, we believe that looking good leads to feeling good. Here are our top grooming tips for men:</p>
 
     <h2>1. Develop a Skincare Routine</h2>
@@ -93,42 +93,42 @@ export default function BlogPostPage() {
 
     <p>At Milele's barbershop, we offer a range of services to help you look your best. From haircuts to beard trims and facials, we've got you covered. Book an appointment today!</p>
   `,
-        },
-    };
+    },
+  };
 
-    const post = blogPosts[slug as keyof typeof blogPosts];
+  const post = blogPosts[slug as keyof typeof blogPosts];
 
-    if (!post) {
-        return <div>Post not found</div>;
-    }
+  if (!post) {
+    return <div>Post not found</div>;
+  }
 
-    return (
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-4xl font-extrabold text-maroon-900 mb-8 text-center"
-            >
-                {post.title}
-            </motion.h1>
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-            >
-                <Image
-                    src={post.image || "/placeholder.svg"}
-                    alt={post.title}
-                    width={800}
-                    height={400}
-                    className="w-full h-64 object-cover rounded-lg shadow-md mb-8"
-                />
-                <div
-                    className="prose prose-lg prose-maroon"
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                />
-            </motion.div>
-        </div>
-    );
+  return (
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl font-extrabold text-maroon-900 mb-8 text-center"
+      >
+        {post.title}
+      </motion.h1>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <Image
+          src={post.image || "/placeholder.svg"}
+          alt={post.title}
+          width={800}
+          height={400}
+          className="w-full h-64 object-cover rounded-lg shadow-md mb-8"
+        />
+        <div
+          className="prose prose-lg prose-maroon"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      </motion.div>
+    </div>
+  );
 }
