@@ -35,7 +35,7 @@ export default function About(): JSX.Element {
           </div>
           <div className="md:w-1/2 mt-8 md:mt-0">
             <Image
-              src=""
+              src="/images/image1.jpeg"
               alt="Milele Salon Interior"
               width={600}
               height={400}
@@ -64,7 +64,7 @@ export default function About(): JSX.Element {
             </div>
             <div className="md:w-1/2 mt-8 md:mt-0">
               <Image
-                src="/milele-story.jpg"
+                src="/images/image1.jpeg"
                 alt="Milele Salon Story"
                 width={600}
                 height={400}
