@@ -1,7 +1,7 @@
-import { HomePage } from "./home/page";
+import About from "./about/page";
 
 export default function Home(): JSX.Element {
   {
-    return <HomePage />;
+    return <About />;
   }
 }
